@@ -1,0 +1,29 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Film {
+  id                String   @id @default(cuid())
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  numberOfParts     Int?
+  totalTime         Int?
+  title             String?
+  archiveNumber     String?
+  releaseYear       Int?
+  studio            String?
+  screenwriter      String?
+  sound             String?
+  color             String?
+  format            String?
+  carrier           String?
+  director          String?
+  cinematographer   String?
+  otherParticipants String?
+  annotation        String?
+}
